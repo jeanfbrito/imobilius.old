@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -43,3 +43,18 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use Bootstrap for themes
+gem "bootstrap-sass", "~> 2.3.2.0"
+
+# Use devise for authentication
+gem "devise", "~> 3.0.0.rc"
+
+# Use simple_form for create forms
+gem "simple_form", "~> 3.0.0.rc"
+
+group :development do
+  gem 'sqlite3'
+  gem "better_errors"
+  gem "binding_of_caller"
+end
