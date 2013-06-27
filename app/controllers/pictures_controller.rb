@@ -6,7 +6,8 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new params.require(:picture).permit(:file, :file_uid, :file_name)#(params[:picture])
+    @picture = Picture.new params.require(:picture).permit(:file, :file_uid, :file_name, :property_id)
+    #@task = Task.new(:parent_id => params[:parent_id], :project_id => params[:project_id])
 
     if @picture.save
       respond_to do |format|

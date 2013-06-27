@@ -4,6 +4,8 @@ class Picture < ActiveRecord::Base
 
   include ActiveModel::ForbiddenAttributesProtection
 
+  belongs_to :property
+
   #attr_accessible :file_uid, :file_name, :file
    #one convenient method to pass jq_upload the necessary information
    
