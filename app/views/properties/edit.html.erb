@@ -51,6 +51,8 @@
                   Catálogo Móvel
                 </button>
               </div>
+
+              <button class="demo btn btn-primary btn-large" data-toggle="modal" href="#static">View Demo</button>
               
               <a href="#picturesUpload" data-url="<%= property_pictures_upload_path(:property_id => @property.id)%>" data-toggle="modal" class="pictures-upload-button btn btn-success"><i class="fa-icon-upload-alt"></i> Adicionar</a>  
 
@@ -131,4 +133,20 @@
   });
 
 }).call(this);
+
+$.fn.modal.defaults.height = function(){
+    // subtract the height of the modal header and footer
+    return $(window).height() - 165; 
+}
+$.fn.modal.defaults.width = 700;
 </script>
+
+<div id="static" class="modal hide fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-body">
+    <p>Would you like to continue with some arbitrary task?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+    <button type="button" data-dismiss="modal" class="btn btn-primary">Continue Task</button>
+  </div>
+</div>
