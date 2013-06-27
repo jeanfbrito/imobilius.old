@@ -48,4 +48,11 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def pictures_upload
+    respond_to do |format|
+      format.html { render :layout => !request.xhr? }
+      format.json { render json: @property }
+    end
+  end
+
 end

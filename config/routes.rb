@@ -1,7 +1,9 @@
 Imobilius::Application.routes.draw do
   devise_for :users
 
-  resources :properties
+  resources :properties do
+    get :pictures_upload
+  end
 
   resources :pictures, :only => [:index, :create, :destroy]
 
