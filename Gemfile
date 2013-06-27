@@ -62,3 +62,7 @@ end
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.9.15'
 gem 'jquery-fileupload-rails'
+
+# Not using, because it overides the bootstrap icons, then I'm using a self solution
+#gem "font-awesome-rails", "~> 3.2.1.1"
+gem "jquery-ui-rails", "~> 4.0.3"

@@ -1,0 +1,12 @@
+#sidebar li a i.icon {
+  vertical-align: top;
+  background-image: none;
+  opacity: .5;
+  margin-top: 2px;
+  color: #E9E9E9;
+}
+
+#header h1 {
+  height: 40px;
+  top: 16px;
+}
