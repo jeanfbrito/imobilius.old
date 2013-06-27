@@ -58,3 +58,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
+
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.15'
+gem 'jquery-fileupload-rails'

@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130626183312) do
+ActiveRecord::Schema.define(version: 20130626232702) do
+
+  create_table "pictures", force: true do |t|
+    t.text     "description"
+    t.integer  "property_id"
+    t.integer  "order"
+    t.boolean  "cover",          default: false
+    t.boolean  "mobile_catalog", default: false
+    t.boolean  "website",        default: false
+    t.string   "file_uid"
+    t.string   "file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "properties", force: true do |t|
     t.text     "description"
