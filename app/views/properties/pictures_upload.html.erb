@@ -120,7 +120,24 @@
         // Initialize the jQuery File Upload widget:
         //$('#fileupload').fileupload();
         $('#fileupload').fileupload({
-            paramName: 'picture[file]'
+            paramName: 'picture[file]',
+            acceptFileTypes:/(\.|\/)(gif|jpe?g|png)$/i,
+            sequentialUploads:true,
+            process:[
+                {
+                    action:'load',
+                    fileTypes:/^image\/(gif|jpeg|png)$/,
+                    maxFileSize:20000000 // 20MB
+                },
+                {
+                    action:'resize',
+                    maxWidth:2048,
+                    maxHeight:2048
+                },
+                {
+                    action:'save'
+                }
+            ]
         });
         // 
         // Load existing files:
