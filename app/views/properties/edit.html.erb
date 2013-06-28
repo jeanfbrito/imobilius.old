@@ -51,10 +51,8 @@
                   Catálogo Móvel
                 </button>
               </div>
-
-              <button class="demo btn btn-primary btn-large" data-toggle="modal" href="#static">View Demo</button>
               
-              <a href="#picturesUpload" data-url="<%= property_pictures_upload_path(:property_id => @property.id)%>" data-toggle="modal" class="pictures-upload-button btn btn-success"><i class="fa-icon-upload-alt"></i> Adicionar</a>  
+              <a href="#static" data-url="<%= property_pictures_upload_path(:property_id => @property.id)%>" data-toggle="modal" class="pictures-upload-button btn btn-success"><i class="fa-icon-upload-alt"></i> Adicionar</a>  
 
               <button class="btn btn-danger" onClick='javascript:return select_delete();' data-original-title="Bold - Ctrl+B">
                 <i class="fa-icon-remove"></i> 
@@ -105,18 +103,6 @@
 
 </div>
 
-<div id="picturesUpload" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button class="btn close-modal" data-dismiss="modal" aria-hidden="true" data-original-title="Bold - Ctrl+B">
-      <i class="fa-icon-ok"></i> 
-      Finalizar
-    </button>
-    <h2>Adicionar novas fotografias</h2>
-  </div>
-  <div class="modal-body">
-    Carregando...
-  </div>
-</div>
 <script>
 (function() {
   $('.pictures-upload-button').click(function() {
@@ -127,10 +113,10 @@
       url: url,
       type: "GET",
       success: function(data) {
-        return $('#picturesUpload .modal-body').html(data);
+        return $('#static .modal-body').html(data);
       },
       error: function() {
-        return $('#picturesUpload .modal-body').html("ERROR");
+        return $('#static .modal-body').html("ERROR");
       }
     });
   });
@@ -139,17 +125,20 @@
 
 $.fn.modal.defaults.height = function(){
     // subtract the height of the modal header and footer
-    return $(window).height() - 165; 
+    return $(window).height() - 265; 
 }
-$.fn.modal.defaults.width = 700;
+$.fn.modal.defaults.width = 750;
 </script>
 
 <div id="static" class="modal hide fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-header">    
+    <button type="button" data-dismiss="modal" class="btn close-modal">Fechar</button>
+    <h2>Adicionar novas fotografias</h2>
+  </div>
   <div class="modal-body">
-    <p>Would you like to continue with some arbitrary task?</p>
+    <p>Carregando...</p>
   </div>
   <div class="modal-footer">
-    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
-    <button type="button" data-dismiss="modal" class="btn btn-primary">Continue Task</button>
+    <button type="button" data-dismiss="modal" class="btn">Fechar</button>
   </div>
 </div>
