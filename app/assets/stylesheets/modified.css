@@ -10,3 +10,21 @@
   height: 40px;
   top: 16px;
 }
+
+.fileupload-loading {
+  position: relative;
+  border: 1px red;
+  float: right;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background: url(/assets/spinner.gif) center no-repeat;
+  display: none;
+  left: 0%;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+  background: #000;
+}

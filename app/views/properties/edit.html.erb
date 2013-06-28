@@ -69,8 +69,8 @@
               
               <% @property.pictures.each do |picture| %>
                 <li class="ui-state-default wrapper span3">
-                  <a title="Terras vizinhas" class="fancybox" href="http://areasrurais.net/imagens/imoveis/1284271.jpg">
-                    <img src="<%= picture.file.thumb('288x216').url %>" alt=""/>
+                  <a title="Terras vizinhas" class="fancybox" href="<%= picture.file.url %>">
+                    <img src="<%= picture.file.thumb('288x216#').url %>" alt=""/>
                   </a>
                   <div class="published">
                     <i class="fa-icon-globe" data-toggle="tooltip" title="Disponivel no website" style="display: none;"></i>
