@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130626232702) do
+ActiveRecord::Schema.define(version: 20130710231231) do
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "districts", force: true do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.integer  "cep"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pictures", force: true do |t|
     t.text     "description"
@@ -29,6 +44,13 @@ ActiveRecord::Schema.define(version: 20130626232702) do
   create_table "properties", force: true do |t|
     t.text     "description"
     t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.string   "uf"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
