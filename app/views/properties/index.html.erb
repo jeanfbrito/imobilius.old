@@ -15,92 +15,78 @@
 <div class="container-fluid">
   <div class="row-fluid">
 
-  <div id="tools">
-    <a href="#" class="btn"><i class="fa-icon-folder-open"></i> Archive</a>
-    
-    <a href="#" class="btn btn-success pull-right spaced"><i class="fa-icon-plus fa-icon-white"></i> Novo Imóvel</a>
-    
-    <div class="btn-group pull-right spaced" >
-           <button class="btn span2">Sort By</button>
-           <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-              </ul>
-         </div>
-    
-        <div class="input-append pull-right spaced">
-          <input class="span3" id="appendedInputButton" type="text" value="Filter by..."></input>
-          <button class="btn" type="button">Filter!</button>
-        </div>
+    <div id="tools">
+      <a href="#" class="btn"><i class="fa-icon-folder-open"></i> Archive</a>
 
-</div>
+      <a href="#" class="btn btn-success pull-right spaced"><i class="fa-icon-plus fa-icon-white"></i> Novo Imóvel</a>
 
-<div id="properties">
-    <table class="table">
+      <div class="btn-group pull-right spaced" >
+        <button class="btn span2">Sort By</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+
+      <div class="input-append pull-right spaced">
+        <input class="span3" id="appendedInputButton" type="text" value="Filter by..."></input>
+        <button class="btn" type="button">Filter!</button>
+      </div>
+
+    </div>
+
+    <div id="properties">
+      <table class="table">
         <tbody>
-            <% @properties.each  do |property| %>
-              <tr>
-                <td>
-                    <i class="fa-icon-2x fa-icon-star" style="color: rgb(211, 211, 211);" data-toggle="tooltip" title="Imóvel não está em destaque"></i>
-                    <i class="fa-icon-2x fa-icon-globe" style="color: rgb(211, 211, 211);" data-toggle="tooltip" title="Não está disponivel no website"></i>
-                    <i class="fa-icon-2x fa-icon-tablet" style="color: rgb(211, 211, 211);" data-toggle="tooltip" title="Não está disponivel no catálogo móvel"></i>
+          <% @properties.each  do |property| %>
+          <tr>
+            <td>
+              <i class="fa-icon-2x fa-icon-star" style="color: rgb(211, 211, 211);" data-toggle="tooltip" title="Imóvel não está em destaque"></i>
+              <i class="fa-icon-2x fa-icon-globe" style="color: rgb(211, 211, 211);" data-toggle="tooltip" title="Não está disponivel no website"></i>
+              <i class="fa-icon-2x fa-icon-tablet" style="color: rgb(211, 211, 211);" data-toggle="tooltip" title="Não está disponivel no catálogo móvel"></i>
+            </td>
+            <td>
+              <% if property.get_cover %>
+              <img src="<%= property.get_cover.file.thumb('130x100#').url %>" alt=""/>
+              <%else %>
+              <img src="/assets/no_cover.png" alt=""/>
+              <% end %>
+            </td>
+            <td>
+              <b>
+                Ref: <%= property.id %>
+              </b>
+              <br>
+              <b> Área para Venda </b>
+              <br> 
+              <b> Proprietário: </b>
+              Jean Brito
+              <br>
+              <b> Localidade: </b>
+              Jardim do Prado, Taquara - RS
+              <br>
+              <b> Valor: </b>
+              <%= property.value %>
+            </td>
+            <td>
+              <%= link_to(property,
+                method: :get,
+                class: 'btn btn-primary') do %>
+                <%= content_tag('i', nil, class: '') %> Abrir Imóvel
+                <% end %>
+
+                <%= link_to(edit_property_path(property),
+                  method: :get,
+                  class: 'btn') do %>
+                  <%= content_tag('i', nil, class: 'icon-edit') %> Editar
+                  <% end %>              
                 </td>
-                <td>
-                    <img src="<%= property.get_cover.file.thumb('130x100#').url %>" alt=""/>
-                </td>
-                <td>
-                    <b>
-                        Ref: <%= property.id %>
-                    </b>
-                    <br>
-                    <b> Área para Venda </b>
-                    <br> 
-                    <b> Proprietário: </b>
-                    Jean Brito
-                    <br>
-                    <b> Localidade: </b>
-                    Jardim do Prado, Taquara - RS
-                    <br>
-                    <b> Valor: </b>
-                    <%= property.value %>
-                </td>
-                <td>
-                    <%= link_to(property,
-                        method: :get,
-                        class: 'btn btn-primary') do %>
-                        <%= content_tag('i', nil, class: '') %> Abrir Imóvel
-                    <% end %>
-
-                    <%= link_to(edit_property_path(property),
-                        method: :get,
-                        class: 'btn') do %>
-                        <%= content_tag('i', nil, class: 'icon-edit') %> Editar
-                    <% end %>              
-                </td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-</div>
-
-
-
-<h1> titulo </h1>
-<a href="#" class="btn btn-primary"><i class="fa-icon-fire fa-icon-white"></i> Teste!</a>
-
-  <% @properties.each  do |property| %>
-    <li>
-      <input type="checkbox"> 
-      <img src="<%= property.get_cover.file.thumb('130x100#').url %>" alt=""/>
-      <span class="title"><%= link_to property.value, property %> 
-       || <%= link_to 'Edit', edit_property_path(property) %>
-       || <%= link_to 'Remove', property, :confirm => 'Are you sure?', :method => :delete %>
-       
-     </span> 
-     <span class="meta">Created <em><%=time_ago_in_words(property.created_at)%></em> ago.</span>
-   </li>
-  <% end %>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
