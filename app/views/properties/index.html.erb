@@ -4,6 +4,7 @@
   <% @properties.each  do |property| %>
     <li>
       <input type="checkbox"> 
+      <img src="<%= property.get_cover.file.thumb('130x100#').url %>" alt=""/>
       <span class="title"><%= link_to property.value, property %> 
        || <%= link_to 'Edit', edit_property_path(property) %>
        || <%= link_to 'Remove', property, :confirm => 'Are you sure?', :method => :delete %>
