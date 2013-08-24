@@ -10,40 +10,188 @@
       </ul>
     </div>
   <% end %>
-  <h2> Endereço </h2>
-  <div class="field">
-    <%= f.label :address_name %><br />
-    <%= f.text_field :address_name %>
+  <div class="widget-box">
+              <div class="widget-title">
+                <span class="icon">
+                  <i class="icon-align-justify"></i>                  
+                </span>
+                <h5>Endereço</h5>
+              </div>
+              <div class="widget-content nopadding">
+  <div class="control-group form-inline">
+    <%= f.label :address_name %>
+    <div class="controls">
+      <%= f.text_field :address_name %>
+    </div>
+    </div>
+  <div class="control-group">
+    <%= f.label :address_number %>
+    <div class="controls">
+      <%= f.text_field :address_number %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :address_number %><br />
-    <%= f.text_field :address_number %>
+  <div class="control-group">
+    <%= f.label :address_complement %>
+    <div class="controls">
+      <%= f.text_field :address_complement %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :address_complement %><br />
-    <%= f.text_field :address_complement %>
+  <div class="control-group">
+    <%= f.label :address_reference %>
+    <div class="controls">
+      <%= f.text_field :address_reference %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :address_reference %><br />
-    <%= f.text_field :address_reference %>
-  </div>
-  <div class="field">
-    <%= f.input :district, :include_blank => false %>
+  <div class="control-group">
+      <%= f.association :district %>
   </div>
   
+  </div>  
+</div>
 
+<div class="widget-box">
+<div class="widget-title">
+  <span class="icon">
+    <i class="icon-align-justify"></i>                  
+  </span>
+  <h5>Medidas</h5>
+</div>
+<div class="widget-content nopadding">
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+  <div class="control-group">
+    <%= f.label :privative_area %>
+    <div class="controls">
+      <%= f.text_field :privative_area %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
+  <div class="control-group">
+    <%= f.label :constructed_area %>
+    <div class="controls">
+      <%= f.text_field :constructed_area %>
+    </div>
   </div>
+
+  <div class="control-group">
+    <%= f.label :total_area %>
+    <div class="controls">
+      <%= f.text_field :total_area %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :terrain_area %>
+    <div class="controls">
+      <%= f.text_field :terrain_area %>
+    </div>
+  </div>
+
+   </div>  
+</div>
+
+<div class="widget-box">
+<div class="widget-title">
+  <span class="icon">
+    <i class="icon-align-justify"></i>                  
+  </span>
+  <h5>Dados sobre o Imóvel</h5>
+</div>
+<div class="widget-content nopadding">
+
+  <div class="control-group">
+    <%= f.label :bedrooms %>
+    <div class="controls">
+      <%= f.text_field :bedrooms %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :suits %>
+    <div class="controls">
+      <%= f.text_field :suits %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :construction_year %>
+    <div class="controls">
+      <%= f.text_field :construction_year %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :garages %>
+    <div class="controls">
+      <%= f.text_field :garages %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :furnished %>
+    <div class="controls">
+      <%= f.text_field :furnished %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :description %>
+    <div class="controls">
+      <%= f.text_field :description %>
+    </div>
+  </div>
+   </div>  
+</div>
+
+<div class="widget-box">
+<div class="widget-title">
+  <span class="icon">
+    <i class="icon-align-justify"></i>                  
+  </span>
+  <h5>Dados Comerciais</h5>
+</div>
+<div class="widget-content nopadding">
+
+  <div class="control-group">
+    <%= f.label :sell_price %>
+    <div class="controls">
+      <%= f.text_field :sell_price %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :client_price %>
+    <div class="controls">
+      <%= f.text_field :client_price %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :value %>
+    <div class="controls">
+      <%= f.text_field :value %>
+    </div>
+  </div>
+   </div>  
+</div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+
+ 
 <% end %>
+<!--
+    t.integer  "privative_area"
+    t.integer  "constructed_area"
+    t.integer  "total_area"
+    t.integer  "terrain_area"
+    t.integer  "sell_price"
+    t.integer  "client_price"
+    t.integer  "bedrooms"
+    t.integer  "bathrooms"
+    t.integer  "suits"
+    t.integer  "construction_year"
+    t.integer  "garages"
+    t.boolean  "furnished"
+  -->
+
